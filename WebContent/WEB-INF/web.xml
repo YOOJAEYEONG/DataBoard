@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+
+  <display-name>DataBoard</display-name>
+  
+  <!-- 
+     JDBC사용을 위한 "컨텍스트 초기화 파라미터"를 설정
+     해당 설정값은 웹어플레이케이션 모든 JSP혹은 서블릿에서
+     접근가능.
+   -->
+  <context-param>
+     <param-name>JDBCDriver</param-name>
+     <param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  
+  <!-- 
+     게시판 페이지처리(Paging)관련 파라미터
+     PAGE_SIZE : 한 페이지에 출력할 게시물의 갯수. 보통10~30정도로 설정한다.
+     BLOCK_PAGE : 한 블록당 출력할 페이지번호의 갯수. 보통 5~10정도로 설정한다.
+   -->
+  <context-param>
+     <param-name>PAGE_SIZE</param-name>
+     <param-value>10</param-value>
+  </context-param>
+  
+  <context-param>
+     <param-name>BLOCK_PAGE</param-name>
+     <param-value>5</param-value>
+  </context-param>
+  
+  <context-param>
+     <param-name>ConnectionURL</param-name>
+     <param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  </context-param>
+
+
+
+
+
+
+
+
+ 
+<!--예제6:서블릿으로 게시판 만들기-->
+<!--자료실: 리스트  -->
+ <servlet>
+   <servlet-name>DataRoomList</servlet-name>
+   <servlet-class>controller.ListCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomList</servlet-name>
+   <url-pattern>/DataRoom/DataList</url-pattern>
+ </servlet-mapping>
+ 
+ <!--자료실:글쓰기 -->
+ <servlet>
+   <servlet-name>DataRoomWrite</servlet-name>
+   <servlet-class>controller.WriteCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomWrite</servlet-name>
+   <url-pattern>/DataRoom/DataWrite</url-pattern>
+ </servlet-mapping>
+ 
+ <!--자료실:상세보기 -->
+ <servlet>
+   <servlet-name>DataRoomView</servlet-name>
+   <servlet-class>controller.ViewCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomView</servlet-name>
+   <url-pattern>/DataRoom/DataView</url-pattern>
+ </servlet-mapping>
+ 
+ <!--수정/삭제 진입전 패스워드 폼 검증폼 -->
+ <servlet>
+   <servlet-name>DataRoomPassword</servlet-name>
+   <servlet-class>controller.PasswordCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomPassword</servlet-name>
+   <url-pattern>/DataRoom/DataPassword</url-pattern>
+ </servlet-mapping>
+ 
+ <!--삭제처리 -->
+ <servlet>
+   <servlet-name>DataRoomDataDelete</servlet-name>
+   <servlet-class>controller.DeleteCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomDataDelete</servlet-name>
+   <url-pattern>/DataRoom/DataDelete</url-pattern>
+ </servlet-mapping>
+ 
+ <!--자료실 수정 -->
+ <servlet>
+   <servlet-name>DataRoomEdit</servlet-name>
+   <servlet-class>controller.EditCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomEdit</servlet-name>
+   <url-pattern>/DataRoom/DataEdit</url-pattern>
+ </servlet-mapping>
+ 
+ <!--파일 다운로드 -->
+ <servlet>
+   <servlet-name>DataRoomDownload</servlet-name>
+   <servlet-class>controller.DownloadCtrl</servlet-class>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>DataRoomDownload</servlet-name>
+   <url-pattern>/DataRoom/Download</url-pattern>
+ </servlet-mapping>
+ 
+
+
+
+
+
+
+
+
+
+  <display-name>DataBoard</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
