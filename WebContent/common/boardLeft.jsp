@@ -20,9 +20,11 @@ else {
 <div class="col-3">
 	<div style="height: 100px; line-height: 0px; margin:10px 0; text-align: center; padding-top:50px 
 		color:#ffffff; background-color:rgb(133, 133, 133); border-radius:10px;">
-		<form action="LoginProcess.jsp">			
-			<input class="form-control" type="text" name="user_id" tabindex="1" placeholder="아이디"/>
-			<input class="form-control" type="password" name="user_pw" tabindex="2" placeholder="비밀번호"/>
+		<form action="LoginProcess.jsp" class="p-3 +">			
+			<input class="form-control" type="text" name="user_id" 
+				tabindex="1" placeholder="아이디"/>
+			<input class="form-control" type="password" name="user_pw" 
+				tabindex="2" placeholder="비밀번호"/>
 		</form>
 	</div>
 	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" 
